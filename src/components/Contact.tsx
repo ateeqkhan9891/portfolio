@@ -9,6 +9,8 @@ import { ToastContainer, toast } from "react-toastify";
 import { useTheme } from "../context/theme-context";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
+// import { motion } from "framer-motion";
+import { FiUser, FiMail, FiEdit3 } from "react-icons/fi";
 
 const Contact: React.FC = () => {
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "";
@@ -113,18 +115,18 @@ const Contact: React.FC = () => {
   const codeSnippet = `
 import  { useState } from "react";
 
-// 🌈 Spreading Stardust: 
-// Crafting Cosmic Email 🌌
+//  Spreading Stardust: 
+// Crafting Cosmic Email 
 
 const [sender, setSender] = "${name}${
     lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""
-  }🚀";
+  }";
 const [recipient, setRecipient] = "${email}${
     lastUpdatedField === "email" ? (cursorBlink ? "|" : " ") : ""
-  }📧";
+  }";
 const [subject, setSubject] = \n"${subject}${
     lastUpdatedField === "subject" ? (cursorBlink ? "|" : " ") : ""
-  }✨";
+  }";
 const [message, setMessage] = 
 \`Hello, intrepid traveler! 👋\n
 Across the cosmos, a message for you:\n
@@ -145,139 +147,144 @@ ${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
           className="title-container flex flex-col gap-6 justify-center items-center py-16  max-lg:p-16"
           ref={ref}
         >
-          <motion.div
-            ref={animationReference}
-            style={{
-              scale: scaleProgess,
-              opacity: opacityProgess,
-              textAlign: "center",
-            }}
-          >
-            <p className="text-[--black] mb-6">
-              <span className="text-[--orange]">&lt;</span>
-              {contactData.title.en}
-              <span className="text-[--orange]">/&gt;</span>
-            </p>
+          <div className="flex flex-row justify-center items-start gap-20 px-24 pt-32 mb-32 max-lg:flex-col max-lg:px-6">
 
-            <h2 className="text-[--black] text-center">
-              {contactData.description.en}
-            </h2>
-          </motion.div>
-        </div>
-        <div className="flex flex-row justify-center items-start px-32 pt-32 mb-32 max-lg:flex-col max-lg:p-10">
-          <div className="w-1/2  bg-[--darkblue] text-[--white] flex flex-col justify-center items-start gap-24 rounded-2xl p-20 border-solid border-[0.4rem] border-[--lightblue] hover:border-orange duration-500 transition-all  quote-outer-container text-left max-lg:hidden cursor-progress">
-            <Highlight
-              code={codeSnippet}
-              language="tsx"
-              theme={themes.nightOwl}
-            >
-              {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                <pre className={`${className} text-4xl `} style={style}>
-                  {tokens.map((line, i) => (
-                    <div {...getLineProps({ line, key: i })}>
-                      {line.map((token, key) => (
-                        <span {...getTokenProps({ token, key })} />
-                      ))}
-                    </div>
-                  ))}
-                </pre>
-              )}
-            </Highlight>
-          </div>
-          <form
-            className="flex flex-col gap-6 justify-center items-center  px-32 w-1/2 max-lg:w-full max-lg:p-10"
-            onSubmit={notifySentForm}
-            autoComplete="off"
-          >
-            {contactData.inputfields.map((input, index) => (
-              <input
-                key={index}
-                type={input.type}
-                placeholder={input.placeholder.en}
-                name={input.name}
-                value={
-                  input.name === "name"
-                    ? name
-                    : input.name === "email"
-                    ? email
-                    : input.name === "subject"
-                    ? subject
-                    : message
-                }
-                required
-                onFocus={() => {
-                  handleInputFocus(input.name);
-                  setLastUpdatedField(input.name);
-                }}
-                onMouseEnter={() => {
-                  handleInputFocus(input.name);
-                  setLastUpdatedField(input.name);
-                }}
-                onChange={handleInputChange}
-                className={`${
-                  theme === "dark"
-                    ? "bg-[--blackblue] dark-mode-shadow "
-                    : "bg-[--icewhite] dark-shadow "
-                }`}
-              />
-            ))}
-            <textarea
-              rows={contactData.textarea.rows}
-              placeholder={contactData.textarea.placeholder.en}
-              name={contactData.textarea.name}
-              onFocus={() => {
-                handleInputFocus(contactData.textarea.name);
-                setLastUpdatedField(contactData.textarea.name);
-              }}
-              onMouseEnter={() => {
-                handleInputFocus(contactData.textarea.name);
-                setLastUpdatedField(contactData.textarea.name);
-              }}
-              onChange={handleInputChange}
-              className={`${
-                theme === "dark"
-                  ? "bg-[--blackblue] dark-mode-shadow"
-                  : "bg-[--icewhite] dark-shadow"
-              }`}
-            />
-            <div className="privacy-checkbox flex gap-16">
-              <label
-                className="block w-2 h-2 cursor-pointer"
-                htmlFor="checkbox-label"
-              >
-                <input
-                  type="checkbox"
-                  required
-                  name="checkbox-label"
-                  id="checkbox-label"
-                />
-                <span className="checkbox"></span>
-              </label>
-              <p>{contactData.privacyOptIn.checkbox.en}</p>
+  {/* Left: Code Block */}
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    className="w-1/2 max-lg:hidden bg-gradient-to-br from-[--blackblue] to-[--darkblue] text-[--white] p-12 rounded-2xl border-[0.3rem] border-[--lightblue] shadow-[0_10px_40px_rgba(255,255,255,0.1)]"
+  >
+    <Highlight code={codeSnippet} language="tsx" theme={themes.nightOwl}>
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <pre className={`${className} text-base leading-relaxed`} style={style}>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
             </div>
-            <p>{contactData.privacyOptIn.description.en}</p>
-            <Button
-              value={contactData.button.value.en}
-              iconSVG={contactData.icon}
-              buttoncolor={contactData.colors.main}
-              iconcolor={contactData.colors.icon}
-              type="submit"
-              elementType="input"
-            />
-            <ToastContainer
-              className="w-max text-3xl block p-3 max-lg:w-full "
-              position="bottom-center"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme={theme}
-            />
-          </form>
+          ))}
+        </pre>
+      )}
+    </Highlight>
+  </motion.div>
+
+  {/* Right: Contact Form */}
+  <motion.form
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.2, duration: 0.6 }}
+    className="w-1/2 max-lg:w-full bg-[--icewhite] dark:bg-[--blackblue] shadow-2xl p-10 rounded-2xl flex flex-col gap-8 transition-all duration-300"
+    onSubmit={notifySentForm}
+    autoComplete="off"
+  >
+    <h3 className="text-4xl font-bold text-[--black] dark:text-white mb-4">Let’s Connect</h3>
+
+    {/* Input Fields with Icons */}
+    {contactData.inputfields.map((input, index) => {
+      const Icon =
+        input.name === "name"
+          ? FiUser
+          : input.name === "email"
+          ? FiMail
+          : FiEdit3;
+
+      return (
+        <label key={index} className="relative w-full">
+          <Icon className="absolute top-4 left-4 text-xl text-[--orange]" />
+          <input
+            type={input.type}
+            name={input.name}
+            value={
+              input.name === "name"
+                ? name
+                : input.name === "email"
+                ? email
+                : input.name === "subject"
+                ? subject
+                : message
+            }
+            onChange={handleInputChange}
+            onFocus={() => {
+              handleInputFocus(input.name);
+              setLastUpdatedField(input.name);
+            }}
+            onMouseEnter={() => {
+              handleInputFocus(input.name);
+              setLastUpdatedField(input.name);
+            }}
+            placeholder={input.placeholder.en}
+            required
+            className="w-full pl-12 pr-4 py-4 rounded-xl text-base bg-transparent border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 ring-[--orange] dark:text-white dark:placeholder-gray-400 transition-all"
+          />
+        </label>
+      );
+    })}
+
+    {/* Textarea */}
+    <label className="relative w-full">
+      <textarea
+        rows={contactData.textarea.rows}
+        placeholder={contactData.textarea.placeholder.en}
+        name={contactData.textarea.name}
+        onChange={handleInputChange}
+        onFocus={() => {
+          handleInputFocus(contactData.textarea.name);
+          setLastUpdatedField(contactData.textarea.name);
+        }}
+        onMouseEnter={() => {
+          handleInputFocus(contactData.textarea.name);
+          setLastUpdatedField(contactData.textarea.name);
+        }}
+        className="w-full pl-4 pr-4 py-4 rounded-xl text-base bg-transparent border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 ring-[--orange] dark:text-white dark:placeholder-gray-400 transition-all resize-none"
+      />
+    </label>
+
+    {/* Checkbox */}
+    <div className="flex items-start gap-4 text-base max-sm:text-sm">
+  <input
+    type="checkbox"
+    required
+    name="checkbox-label"
+    id="checkbox-label"
+    className="w-5 h-5 accent-[--orange] mt-1"
+  />
+  <label
+    htmlFor="checkbox-label"
+    className="text-xl dark:text-[--icewhite] font-medium"
+  >
+    {contactData.privacyOptIn.checkbox.en}
+  </label>
+</div>
+
+<p className="text-base max-sm:text-sm mt-2 text-gray-600 dark:text-gray-400 leading-relaxed">
+  {contactData.privacyOptIn.description.en}
+</p>
+
+
+    {/* Submit Button */}
+    <Button
+      value={contactData.button.value.en}
+      iconSVG={contactData.icon}
+      buttoncolor={contactData.colors.main}
+      iconcolor={contactData.colors.icon}
+      type="submit"
+      elementType="input"
+    />
+
+    <ToastContainer
+      className="w-max text-lg block p-3 max-lg:w-full"
+      position="bottom-center"
+      autoClose={5000}
+      hideProgressBar={false}
+      closeOnClick
+      pauseOnHover
+      theme={theme}
+    />
+  </motion.form>
+</div>
         </div>
       </section>
     </React.Fragment>

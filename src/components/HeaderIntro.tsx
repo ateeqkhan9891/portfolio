@@ -4,12 +4,51 @@ import RadialGradient from "./RadialGradient";
 import { headerIntroData } from "../assets/lib/data";
 import { useSectionInView } from "../assets/lib/hooks";
 import { useActiveSectionContext } from "../context/active-section-context";
+import TypingSubtitle from "../assets/components/introsubtitle";
 
 import { BsMouse } from "react-icons/bs";
 
 const HeaderIntro: React.FC = () => {
   const { ref } = useSectionInView("Home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+
+
+
+  // subtitle animation
+const phrases = [
+  "Machine Learning",
+  "Data Science",
+  "Web Scraping",
+  "Flask + React",
+  "Data Visualization",
+];
+
+const [text, setText] = React.useState("");
+const [phraseIndex, setPhraseIndex] = React.useState(0);.,/
+const [isDeleting, setIsDeleting] = React.useState(false);
+
+React.useEffect(() => {
+  const currentPhrase = phrases[phraseIndex];
+  const timeout = setTimeout(() => {
+    if (!isDeleting && text === currentPhrase) {
+      setIsDeleting(true);
+    } else if (isDeleting && text === "") {
+      setIsDeleting(false);
+      setPhraseIndex((prev) => (prev + 1) % phrases.length);
+    } else {
+      const nextText = isDeleting
+        ? currentPhrase.slice(0, text.length - 1)
+        : currentPhrase.slice(0, text.length + 1);
+      setText(nextText);
+    }
+  }, isDeleting ? 50 : 150);
+
+  return () => clearTimeout(timeout);
+}, [text, isDeleting, phraseIndex]);
+
+
+
+
 
   return (
     <section
@@ -22,13 +61,16 @@ const HeaderIntro: React.FC = () => {
       <img
         src={headerIntroData.profilepicture}
         alt={headerIntroData.profilepicture}
-        className="w-1/6 drop-shadow-2xl rounded-full shadow-2xl avatar-img max-lg:w-3/4"
+        className="w-60 drop-shadow-2xl rounded-full shadow-2xl avatar-img max-lg:w-3/4"
       />
       <h1>
         {headerIntroData.title.en}
         <span className="wave text-7xl">&#128075;&#127997;</span>
       </h1>
-      <h2>{headerIntroData.subtitle}</h2>
+      <h2 className="text-4xl font-semibold text-orange-500 border-r-2 border-orange-500 pr-2 whitespace-nowrap overflow-hidden">
+  {text}
+</h2>
+
       <p className="w-1/2 text-center max-lg:hidden">
         {headerIntroData.description.en}
       </p>

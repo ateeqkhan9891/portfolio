@@ -41,11 +41,10 @@ const AboutMe: React.FC = () => {
             textAlign: "left",
           }}
         >
-          <p className="text-[--black] mb-6">
-            <span className="text-orange">&lt;</span>
-            {aboutMeData.title_EN}
-            <span className="text-orange">/&gt;</span>
-          </p>
+          <p className="text-[--black] mb-6 text-5xl font-semibold tracking-wide">
+  {aboutMeData.title_EN}
+</p>
+
 
           <h2 className="text-[--black] text-center max-lg:text-left break-words">
             {aboutMeData.description_EN}
@@ -84,21 +83,10 @@ const AboutMe: React.FC = () => {
                 </div>
               </div>
               <div className="flex flex-row gap-10 max-lg:flex-col">
-                <div className="flex flex-col gap-4 items-center justify-between -mt-10 -mb-10 max-lg:flex-row max-lg:m-0">
-                  <p className="text-white">
-                    <span className="text-orange">&lt;</span>h3
-                    <span className="text-orange">/&gt;</span>
-                  </p>
-                  <div className="flex justify-between items-center w-1 h-[100%] max-lg:flex-row max-lg:w-[10rem]  max-lg:bg-lightblue">
-                    <div></div>
-                    <div className="w-[0.5rem] bg-[--lightblue] h-[100%] max-lg:w-10  max-lg:bg-lightblue max-lg:h-[0.25rem]"></div>
-                    <div></div>
-                  </div>
-                  <p className="text-white">
-                    <span className="text-orange">&lt;</span>h3
-                    <span className="text-orange">/&gt;</span>
-                  </p>
-                </div>
+                <div className="flex flex-col gap-6 items-center justify-center max-lg:flex-row max-lg:gap-4">
+  <div className="w-1 h-24 bg-[--lightblue] max-lg:h-1 max-lg:w-20 rounded-full opacity-60" />
+</div>
+
                 <div>
                   <p className="text-white text-4xl">{paragraph.description}</p>
                 </div>

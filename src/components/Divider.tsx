@@ -15,10 +15,10 @@ interface DividerProps {
     | "middle-to-inner-right"
     | "middle-to-inner-left"
     | "middle";
-  color: string;
-  thickness: string;
+  color: string;           // CSS variable color name, e.g. "orange"
+  thickness: string;       // e.g. "3px", "0.2rem"
   height: "small" | "middle" | "large" | "extraLarge";
-  dividerStyle: string;
+  dividerStyle: string;    // e.g. "solid", "dashed"
 }
 
 const Divider: React.FC<DividerProps> = ({
@@ -30,7 +30,7 @@ const Divider: React.FC<DividerProps> = ({
 }) => {
   const borderStyle = {
     borderColor: `var(--${color})`,
-    borderStyle: `${dividerStyle}`,
+    borderStyle: dividerStyle,
   };
 
   const heightStyle = heightStyles[height];
@@ -39,33 +39,41 @@ const Divider: React.FC<DividerProps> = ({
   const widthStyle = widthStyles[direction];
 
   return (
-    <div style={directionStyle} className="relative">
+    <div
+      style={directionStyle}
+      className="relative transition-all duration-300 ease-in-out"
+    >
+      {/* Top/Right part of the angled line */}
       <div
-        className="flex justify-end mb-10 "
+        className="flex justify-end mb-10"
         style={{ height: heightStyle?.heights[0], ...spaceStyle }}
       >
         <div
-          className="h-full"
+          className="h-full rounded-tr-lg shadow-sm"
           style={{
             ...borderStyle,
             borderRightWidth: thickness,
             borderBottomWidth: thickness,
             width: widthStyle?.widths[0],
+            transition: "border-color 0.3s ease",
           }}
-        ></div>
+        />
       </div>
+
+      {/* Bottom/Left part of the angled line */}
       <div
         className="flex justify-end -mt-10"
         style={{ height: heightStyle?.heights[1] }}
       >
         <div
-          className="h-full"
+          className="h-full rounded-bl-lg shadow-sm"
           style={{
             ...borderStyle,
             borderLeftWidth: thickness,
             width: widthStyle?.widths[1],
+            transition: "border-color 0.3s ease",
           }}
-        ></div>
+        />
       </div>
     </div>
   );

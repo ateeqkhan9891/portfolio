@@ -1,20 +1,27 @@
 
 
 import figmaicon from "../../assets/icons/figmaicon.png";
-import htmlicon from "../../assets/icons/htmlicon.svg";
-import ricon from "../../assets/icons/ricon.png";
+import python from "../../assets/icons/python.svg";
+import r from "../../assets/icons/r.svg";
+import html from "../../assets/icons/html.svg";
+import css from "../../assets/icons/css.svg";
+import tailwind from "../../assets/icons/tailwind.svg";
+import react from "../../assets/icons/react.svg";
+import frame from "../../assets/icons/frame.svg";
+import three from "../../assets/icons/three.svg";
+import vite from "../../assets/icons/vite.svg"; 
 import javascripticon from "../../assets/icons/javascripticon.svg";
-import powerbiicon from "../../assets/icons/powerbiicon.svg";
+import powerbi from "../../assets/icons/powerbi.svg";
 import tableauicon from "../../assets/icons/tableauicon.svg";
-import bigdataicon from "../../assets/icons/bigdataicon.svg";
+import bigdata from "../../assets/icons/bigdata.svg";
 import nodejsicon from "../../assets/icons/nodejsicon.svg";
-import mlicon from "../../assets/icons/mlicon.svg";
+import ml from "../../assets/icons/ml.svg";
 import excelicon from "../../assets/icons/excelicon.svg";
-import matplotlibicon from "../../assets/icons/matplotlibicon.svg";
-import sqlicon from "../../assets/icons/sqlicon.png";
-// import scikiticon from "../../assets/icons/scikiticon.png";
-import pandaicon from "../../assets/icons/pandaicon.png";
-// import numpyicon from "../../assets/icons/numpyicon.png";
+import matplotlib from "../../assets/icons/matplotlib.svg";
+import mysql from "../../assets/icons/mysql.svg";
+import scikitlearn from "../../assets/icons/scikitlearn.svg";
+import panda from "../../assets/icons/panda.svg";
+import numpy from "../../assets/icons/numpy.svg";
 // import trelloicon from "../../assets/icons/trelloicon.svg"; 
 import apiicon from "../../assets/icons/apiicon.svg";
 // import axiosicon from "../../assets/icons/axiosicon.svg";
@@ -32,8 +39,8 @@ import profilepicture from "../img/me2.webp";
 import caricon from "../../assets/icons/car-icon.svg";
 import travelicon from "../../assets/icons/travel-icon.svg";
 import hardwareicon from "../../assets/icons/hardware-icon.svg";
-// import nextjsiconwhite from "../../assets/icons/nextjsiconwhite.svg";
-// import expressiconwhite from "../../assets/icons/expressiconwhite.svg";
+import next from "../../assets/icons/next.svg";
+import express from "../../assets/icons/express.svg";
 import { GoHome, GoPerson, GoMail, GoStack, GoProject } from "react-icons/go";
 import { FiGithub, FiLink, FiLinkedin, FiMail } from "react-icons/fi";
 import Imprint from "../../components/Imprint";
@@ -78,17 +85,17 @@ export const projectsData = [
     // description:
       // "Eine Rezepte App, die wir als Team mit React und der MealDB API gebaut haben. Ich war der Front-End Entwickler und habe Features wie Voice Search oder Print to PDF programmiert. Das Design wurde mit Figma erstellt. Die Website ist responsive und mobile-optimiert.",
     description_EN:
-      "Predicts which customers are likely to leave using machine learning and displays key risk factors in an interactive Power BI dashboard",
+      "A complete developer p Features include user authentication, admin controls, and real-time MongoDB-backed content management",
     technologies: [
-      { name: "Python", icon: htmlicon },
-      { name: "R", icon: ricon },
+      { name: "Python", icon: python },
+      { name: "R", icon: r },
       { name: "JavaScript", icon: javascripticon },
-      { name: "Power Bi", icon: powerbiicon },
-      { name: "SQL", icon: sqlicon },
-      { name: "pandas", icon: pandaicon },
-      { name: "Matplotlib", icon: javascripticon },
-      { name: "SciKit-Learn", icon: ricon },
-      { name: "ML", icon: htmlicon },
+      { name: "Power Bi", icon: powerbi },
+      { name: "SQL", icon: mysql },
+      { name: "pandas", icon: panda },
+      { name: "Matplotlib", icon: matplotlib },
+      { name: "SciKit-Learn", icon: scikitlearn },
+      { name: "ML", icon: ml },
     ],
     image: tastyMockup,
     deploymenturl: "https://delightful-cheesecake-9b19f0.netlify.app/",
@@ -107,20 +114,20 @@ export const projectsData = [
     // description:
       // "Eine Yoga und Meditations App, die wir als Team mit React, MongoDB, Express und Node.js gebaut haben. Meine Aufgabe als Gitmaster und Backend Entwickler bestand darin, das Backend mit Anbindung anhand einer Restful API zu programmieren und die Datenbank in MongoDB zu modellieren.",
     description_EN:
-      "A data-driven dashboard that analyzes sales performance, identifies key business drivers, and predicts future revenue using machine learning models. Built with Python and R for data processing and modeling, and visualized using Power BI for real-time reporting. Integrated with JavaScript for frontend interactivity and SQL for querying large datasets. Ideal for business decision-making and KPI tracking.",
+      "A complete developer p Features include user authentication, admin controls, and real-time MongoDB-backed content management.",
     technologies: [
-      { name: "Python", icon: htmlicon },
-      { name: "R", icon: ricon },
-      { name: "Power BI", icon: powerbiicon },
+      { name: "Python", icon: python },
+      { name: "R", icon: r },
+      { name: "Power BI", icon: powerbi },
       { name: "Tableau", icon: tableauicon },
-      { name: "SQL", icon: sqlicon },
-      { name: "Pandas", icon: pandaicon },
-      { name: "Matplotlib", icon: htmlicon },
-      { name: "Scikit-Learn", icon: htmlicon },
-      { name: "Flask", icon: ricon },
+      { name: "SQL", icon: mysql },
+      { name: "Pandas", icon: panda },
+      { name: "Matplotlib", icon: matplotlib },
+      { name: "Scikit-Learn", icon: scikitlearn },
+      { name: "Flask", icon: r },
       { name: "Node.js", icon: nodejsicon },
-      { name: "Web Scrapping", icon: htmlicon },
-      { name: "ML", icon: htmlicon },
+      { name: "Web Scrapping", icon: python },
+      { name: "ML", icon: ml },
     ],
     image: silentmoonMockup,
     deploymenturl: "https://silentmoon-grpw.onrender.com/",
@@ -137,27 +144,27 @@ export const projectsData = [
   },
   {
     title: "SkillHub – Full-Stack Developer Platform",
-    description:
-      "Eine Möbel-Organizer App, die wir als Duo-Team mit React, MongoDB, Express und Node.js programmiert haben. Als Gitmaster habe ich die Verknüpfung des Frontends mit dem Backend und die Datenbankmodellierung übernommen. Die App ist responsive und mobile-optimiert.",
+    // description:
+      // "Eine Möbel-Organizer App, die wir als Duo-Team mit React, MongoDB, Express und Node.js programmiert haben. Als Gitmaster habe ich die Verknüpfung des Frontends mit dem Backend und die Datenbankmodellierung übernommen. Die App ist responsive und mobile-optimiert.",
     description_EN:
-      "A complete developer portfolio and learning platform built with a modern full-stack tech stack. Users can showcase projects, write and share technical blogs, manage their personal dashboard, and explore a community-driven feed — all within a sleek, animated UI. Features include user authentication, admin controls, and real-time MongoDB-backed content management",
+      "A complete developer p Features include user authentication, admin controls, and real-time MongoDB-backed content management",
     technologies: [
-      { name: "Html", icon: htmlicon },
-      { name: "CSS", icon: ricon },
+      { name: "Html", icon: html },
+      { name: "CSS", icon: css },
       { name: "JavaScript", icon: javascripticon },
-      { name: "React", icon: htmlicon },
-      { name: "tailwind css", icon: pandaicon },
-      { name: "bootstrap", icon: powerbiicon },
-      { name: "MongoDB", icon: sqlicon },
-      { name: "Express", icon: ricon },
+      { name: "React", icon: react },
+      { name: "tailwind css", icon: tailwind },
+      { name: "Framer Motion", icon: frame },
+      { name: "Mysql", icon: mysql },
+      { name: "Express", icon: express },
       { name: "Node.js", icon: nodejsicon },
-      { name: "next.js", icon: figmaicon },
-      { name: "framer Mpotion", icon: bigdataicon },
-      { name: "vite", icon: apiicon },
+      { name: "next.js", icon: next },
+      { name: "Three.js", icon: three },
+      { name: "vite", icon: vite },
     ],
-    image: htmlicon,
-    deploymenturl: "https://mern-haushaltsbuch.onrender.com/",
-    githuburl: "https://github.com/AlpayC/Furniture_MERN",
+    image: html,
+    deploymenturl: "https://github.com/ateeqkhan9891",
+    githuburl: "https://github.com/ateeqkhan9891",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -182,14 +189,14 @@ export const skillsDataWeb = [
     skills: [
       {
         title: "Python",
-        hash: "#html",
-        icon: htmlicon,
+        hash: "#python",
+        icon: python,
         color: "#F1662A",
       },
       {
         title: "R",
         hash: "#CSS",
-        icon: ricon,
+        icon: r,
         color: "#1572B6",
       },
       {
@@ -200,8 +207,8 @@ export const skillsDataWeb = [
       },
       {
         title: "Power BI",
-        hash: "#TypeScript",
-        icon: powerbiicon,
+        hash: "#TypeScript", 
+        icon: powerbi,
         color: "#007ACC",
       },
       {
@@ -213,7 +220,7 @@ export const skillsDataWeb = [
       {
         title: "Big Data",
         hash: "#Next.js",
-        icon: bigdataicon,
+        icon: bigdata,
         color: "#000000",
       },
       {
@@ -225,31 +232,31 @@ export const skillsDataWeb = [
       {
         title: "ML",
         hash: "#Tailwind",
-        icon: mlicon,
+        icon: ml,
         color: "#38B2AC",
       },
       {
         title: "Matplotlib",
         hash: "#MongoDB",
-        icon: matplotlibicon,
+        icon: matplotlib,
         color: "#449C45",
       },
       {
         title: "Sikit-Learn",
         hash: "#Vue.js",
-        icon: htmlicon,
+        icon: scikitlearn,
         color: "#4FC08D",
       },
       {
         title: "Pandas",
         hash: "#Express",
-        icon: pandaicon,
+        icon: panda,
         color: "#000000",
       },
       {
         title: "Numpy",
         hash: "#SASS/SCSS",
-        icon: htmlicon,
+        icon: numpy,
         color: "#CC6699",
       },
     ],
@@ -260,7 +267,7 @@ export const skillsDataDesign = [
   {
     skillsTitle: "Data Visualization ",
     skills: [
-      { title: "Power BI", hash: "#Figma", icon: powerbiicon, color: "#F24E1E" },
+      { title: "Power BI", hash: "#Figma", icon: powerbi, color: "#F24E1E" },
       {
         title: "Tableau ",
         hash: "#Adobe XD",
@@ -351,43 +358,24 @@ export const aboutMeData = {
   title_EN: "About me",
   // description: "Ein paar Codeschnippsel über mich",
   description_EN: "A few code snippets about me",
-  // paragraphs_DE: [
-  //   {
-  //     title: "Die Schaltkreise meines Herzens",
-  //     description:
-  //       "Wenn ich nicht in der digitalen Welt unterwegs bin, durchstreife ich die faszinierende Welt der Technik und Hardware. Schaltkreise und Lötstellen sind für mich wie Puzzleteile eines aufregenden Abenteuers.",
-  //     icon: hardwareicon,
-  //   },
-  //   {
-  //     title: "Auf der Überholspur des Lebens",
-  //     description:
-  //       "Neben dem Coden befinde ich mich gerne auf der Überholspur – im wahrsten Sinne des Wortes. Autos sind meine Leidenschaft, und ich genieße es, mit PS-starken Maschinen auf unbekannten Straßen unterwegs zu sein.",
-  //     icon: caricon,
-  //   },
-  //   {
-  //     title: "Entdeckungsfreude als Lebensmotto",
-  //     description:
-  //       "Meine Reise als Webentwickler ist nur ein Teil meines Lebenswegs. Ich lebe nach dem Motto, dass das Abenteuer erst beginnt, wenn man das Bekannte hinter sich lässt. Das Entdecken neuer Orte ist meine Form der kreativen Inspiration.",
-  //     icon: travelicon,
-  //   },
-  // ],
+  
   paragraphs_EN: [
     {
       title: "Emotion in Every Line",
       description:
-        "A blend of logic and passion powers everything I create. From algorithms to insights, each line of code and every dataset I explore reflects the curiosity and care I carry within. Data is my language, but purpose is my drive — these are the circuits of my heart.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.",
       icon: hardwareicon,
     },
     {
       title: "On the Fast Lane of Life",
       description:
-        "I thrive in motion — constantly learning, adapting, and building. In the fast lane of life, I chase progress with purpose, using data and curiosity to fuel meaningful discovery and impact",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet",
       icon: caricon,
     },
     {
       title: "The Joy of Discovery as a Life Motto",
       description:
-        "Driven by curiosity, I approach every dataset as an opportunity to discover something new. For me, data science is more than a profession — it’s a process of continuous exploration and learning. Whether uncovering hidden trends, building predictive models, or translating complexity into clarity, I find joy in each step of discovery. This mindset fuels not just my work, but my growth",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet",
       icon: travelicon,
     },
   ],

@@ -43,9 +43,9 @@ const TechStack: React.FC = () => {
               opacity: opacityProgess,
             }}
           >
+            {/* Removed the angled brackets here */}
             <p className="font-black mb-6">
-              <span className="text-[--orange]">&lt;</span>Skills
-              <span className="text-[--orange]">/&gt;</span>
+              Skills
             </p>
             <h2>My TechStack and Skills</h2>
           </motion.div>

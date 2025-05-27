@@ -1,0 +1,43 @@
+import React, { useState, useEffect } from "react";
+
+const phrases = [
+  "Machine Learning",
+  "Data Science",
+  "Web Scraping",
+];
+
+const TypingSubtitle: React.FC = () => {
+  const [text, setText] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [speed, setSpeed] = useState(150);
+
+  useEffect(() => {
+    const currentPhrase = phrases[phraseIndex];
+    let timer: NodeJS.Timeout;
+
+    if (!isDeleting && text === currentPhrase) {
+      timer = setTimeout(() => setIsDeleting(true), 1000); // pause before deleting
+    } else if (isDeleting && text === "") {
+      setIsDeleting(false);
+      setPhraseIndex((prev) => (prev + 1) % phrases.length); // move to next
+    } else {
+      timer = setTimeout(() => {
+        const updatedText = isDeleting
+          ? currentPhrase.substring(0, text.length - 1)
+          : currentPhrase.substring(0, text.length + 1);
+        setText(updatedText);
+      }, isDeleting ? 50 : 150);
+    }
+
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, phraseIndex]);
+
+  return (
+    <h2 className="text-xl font-semibold text-orange-500 border-r-2 border-orange-500 pr-2 whitespace-nowrap overflow-hidden">
+      {text}
+    </h2>
+  );
+};
+
+export default TypingSubtitle;

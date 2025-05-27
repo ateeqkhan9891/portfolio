@@ -56,20 +56,8 @@ const NavBar: React.FC = () => {
     const isLinkActive = isHovered || linkEn === activeSection;
 
     const linkClasses = isLinkActive
-      ? "transition-all duration-200 relative"
+      ? "transition-all duration-200 relative text-[--orange]"
       : "opacity-20 transition-all duration-700";
-
-    const leftArrow = isLinkActive && (
-      <span className="text-[--orange] absolute -left-5 top-0 max-lg:hidden">
-        &lt;
-      </span>
-    );
-
-    const rightArrow = isLinkActive && (
-      <span className="text-[--orange] absolute top-0 -right-10 max-lg:hidden">
-        /&gt;
-      </span>
-    );
 
     return (
       <NavLink
@@ -79,11 +67,7 @@ const NavBar: React.FC = () => {
         className={`relative ${linkClasses}`}
         aria-aria-current={link}
       >
-        <span>
-          {leftArrow}
-          {children}
-          {rightArrow}
-        </span>
+        <span>{children}</span>
       </NavLink>
     );
   };
@@ -105,12 +89,7 @@ const NavBar: React.FC = () => {
           {navLinks.map((link, index) => (
             <CustomNavLink key={index} link={link.hash} linkEn={link.en}>
               {link.en === activeSection ? (
-                <div>
-                  <span className="text-[--orange] absolute -left-5 top-0">
-                    &lt;
-                  </span>
-                  {link.en}
-                </div>
+                <div>{link.en}</div>
               ) : (
                 <div
                   onClick={() => {
